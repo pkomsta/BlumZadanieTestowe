@@ -15,6 +15,8 @@ public class MashroomAnimator : MonoBehaviour
     private static readonly int Walk = Animator.StringToHash("Walk");
     private static readonly int Damaged = Animator.StringToHash("Damaged");
     private static readonly int Death = Animator.StringToHash("Death");
+    private static readonly int Crush = Animator.StringToHash("Crushed");
+
 
     private void Awake()
     {
@@ -52,6 +54,11 @@ public class MashroomAnimator : MonoBehaviour
         {
             return Death;
         }
+        if (enemy.CurrentState == enemy.mushroomBouncyState)
+        {
+            return Crush;
+        }
+
 
 
         return Idle;

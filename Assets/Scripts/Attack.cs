@@ -21,7 +21,7 @@ public class Attack : MonoBehaviour
         {
             if(enemy.TryGetComponent(out Health health)){
                 health.TakeDamage(transform);
-                Debug.Log(enemy);
+                
             }
         }
         if(hitEnemies.Length > 0 && attackAnimation != null)

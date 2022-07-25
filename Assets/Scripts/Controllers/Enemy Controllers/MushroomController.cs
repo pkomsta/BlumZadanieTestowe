@@ -12,18 +12,18 @@ public class MushroomController : Controller
     public readonly MushroomMoveState mushroomMoveState = new MushroomMoveState();
     public readonly TookDamageState tookDamageState = new TookDamageState();
     public readonly DeathState deathState = new DeathState();
+    public readonly MushroomBouncyState mushroomBouncyState = new MushroomBouncyState();
     bool looksRight = true;
     public override void Update()
     {
 
         base.Update();
-        if (waypoints[waypointIndex].transform.position.x < 0 && looksRight)
+        if (waypoints[waypointIndex].transform.position.x < transform.position.x && looksRight)
         {
             looksRight = false;
             Flip();
         }
-
-        else if (waypoints[waypointIndex].transform.position.x > 0 && !looksRight)
+        else if (waypoints[waypointIndex].transform.position.x > transform.position.x && !looksRight)
         {
             looksRight = true;
             Flip();

@@ -17,6 +17,7 @@ GameObject:
   - component: {fileID: 2531259235312455132}
   - component: {fileID: 5261189580436919736}
   - component: {fileID: 1009508404857451706}
+  - component: {fileID: 897879782}
   m_Layer: 6
   m_Name: Player
   m_TagString: Player
@@ -162,8 +163,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c5e16d84f0f5acb4ab0630ccb67c5647, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  jumpForce: 13
   speed: 6
+  knockback: 500
+  jumpForce: 13
   jumpInputTime: 0.2
   jumpTime: 0
   timeLeftGrounded: -10
@@ -204,6 +206,7 @@ MonoBehaviour:
   tookDamage:
     m_PersistentCalls:
       m_Calls: []
+  invincibleTime: 0.75
 --- !u!114 &1009508404857451706
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -222,6 +225,22 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 128
   attackAnimation: {fileID: 2719695255226152174}
+--- !u!58 &897879782
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2531259235312455140}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: -0.6}
+  serializedVersion: 2
+  m_Radius: 0.2
 --- !u!1 &2531259235675869273
 GameObject:
   m_ObjectHideFlags: 0
