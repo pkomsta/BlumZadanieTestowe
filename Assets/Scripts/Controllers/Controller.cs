@@ -2,11 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+[RequireComponent(typeof(Health))]
 public abstract class Controller : MonoBehaviour
 {
-
+    public float speed = 10f;
     protected bool facingRight = true;
-    
+    Health health;
+    bool died = false;
 
     private Rigidbody2D rbody;
 
@@ -25,7 +27,8 @@ public abstract class Controller : MonoBehaviour
     {
         get;
     }
-
+    [Header("KnockBack")]
+    public float knockback = 500f;
 
     public virtual void Awake()
     { 
@@ -34,6 +37,8 @@ public abstract class Controller : MonoBehaviour
 
     void Start()
     {
+        health = GetComponent<Health>();
+        health.tookDamage.AddListener(TookDamage);
         TransitionToState(IdleState);
     }
     
@@ -41,8 +46,13 @@ public abstract class Controller : MonoBehaviour
 
     public virtual void Update()
     {
+        if(health.IsDead() && !died)
+        {
+            died = true;
+            OnDeath();
+        }
         currentState.Update(this);
-        Debug.Log(currentState);
+        
     }
 
     public virtual void FixedUpdate()
@@ -65,6 +75,14 @@ public abstract class Controller : MonoBehaviour
         Vector3 theScale = transform.localScale;
         theScale.x *= -1;
         transform.localScale = theScale;
+    }
+
+    public abstract void OnDeath();
+    public virtual void TookDamage(Transform transform)
+    {
+        Vector2 moveDirection = Rigidbody.transform.position - transform.position;
+        Rigidbody.AddForce(moveDirection.normalized * knockback);
+        Rigidbody.AddForce(Vector2.up * knockback / 2);
     }
 
 }

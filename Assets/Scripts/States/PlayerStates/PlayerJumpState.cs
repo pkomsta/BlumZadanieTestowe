@@ -30,6 +30,12 @@ public class PlayerJumpState : BaseState
             controller.TransitionToState((controller as PlayerController).playerFallingState);
         }
 
+        if ((controller as PlayerController).attack.WasPressedThisFrame() && Time.time > (controller as PlayerController).nextAttack)
+        {
+            (controller as PlayerController).nextAttack = Time.time + (controller as PlayerController).attackCooldown;
+            controller.TransitionToState((controller as PlayerController).playerAttackState);
+        }
+
         if ((controller as PlayerController).dash.WasPressedThisFrame() && Time.time > (controller as PlayerController).nextDash)
         {
             (controller as PlayerController).nextDash = Time.time + (controller as PlayerController).dashCooldown;

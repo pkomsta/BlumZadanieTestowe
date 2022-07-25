@@ -6,7 +6,7 @@ AnimationClip:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: PlayerAttack
+  m_Name: effect
   serializedVersion: 6
   m_Legacy: 0
   m_Compressed: 0
@@ -20,13 +20,13 @@ AnimationClip:
   m_PPtrCurves:
   - curve:
     - time: 0
-      value: {fileID: -1595822373, guid: f2703305f5ea27f4a97ff1ffa6ee4165, type: 3}
+      value: {fileID: 1617789841, guid: 4d57b2e1d030254419cda04add56847f, type: 3}
     - time: 0.125
-      value: {fileID: -452175720, guid: f2703305f5ea27f4a97ff1ffa6ee4165, type: 3}
+      value: {fileID: -559181633, guid: 4d57b2e1d030254419cda04add56847f, type: 3}
     - time: 0.25
-      value: {fileID: -404010875, guid: f2703305f5ea27f4a97ff1ffa6ee4165, type: 3}
+      value: {fileID: 382496395, guid: 4d57b2e1d030254419cda04add56847f, type: 3}
     - time: 0.375
-      value: {fileID: -1862149652, guid: f2703305f5ea27f4a97ff1ffa6ee4165, type: 3}
+      value: {fileID: -1582292927, guid: 4d57b2e1d030254419cda04add56847f, type: 3}
     attribute: m_Sprite
     path: 
     classID: 212
@@ -46,10 +46,10 @@ AnimationClip:
       customType: 23
       isPPtrCurve: 1
     pptrCurveMapping:
-    - {fileID: -1595822373, guid: f2703305f5ea27f4a97ff1ffa6ee4165, type: 3}
-    - {fileID: -452175720, guid: f2703305f5ea27f4a97ff1ffa6ee4165, type: 3}
-    - {fileID: -404010875, guid: f2703305f5ea27f4a97ff1ffa6ee4165, type: 3}
-    - {fileID: -1862149652, guid: f2703305f5ea27f4a97ff1ffa6ee4165, type: 3}
+    - {fileID: 1617789841, guid: 4d57b2e1d030254419cda04add56847f, type: 3}
+    - {fileID: -559181633, guid: 4d57b2e1d030254419cda04add56847f, type: 3}
+    - {fileID: 382496395, guid: 4d57b2e1d030254419cda04add56847f, type: 3}
+    - {fileID: -1582292927, guid: 4d57b2e1d030254419cda04add56847f, type: 3}
   m_AnimationClipSettings:
     serializedVersion: 2
     m_AdditiveReferencePoseClip: {fileID: 0}
@@ -74,11 +74,4 @@ AnimationClip:
   m_EulerEditorCurves: []
   m_HasGenericRootTransform: 0
   m_HasMotionFloatCurves: 0
-  m_Events:
-  - time: 0
-    functionName: DoAttack
-    data: 
-    objectReferenceParameter: {fileID: 0}
-    floatParameter: 0
-    intParameter: 0
-    messageOptions: 0
+  m_Events: []

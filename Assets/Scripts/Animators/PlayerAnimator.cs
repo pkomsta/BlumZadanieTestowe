@@ -5,13 +5,7 @@ using Random = UnityEngine.Random;
 
 public class PlayerAnimator : MonoBehaviour
 {
-    [SerializeField] private float _minImpactForce = 20;
-
-    [SerializeField] private float _landAnimDuration = 0.1f;
-    [SerializeField] private float _attackAnimTime = 0.2f;
-
-    private Animator _anim;
-    private SpriteRenderer renderer;
+    private Animator anim;
     private PlayerController player;
     private float lockedTill;
 
@@ -23,23 +17,22 @@ public class PlayerAnimator : MonoBehaviour
     private static readonly int Fall = Animator.StringToHash("PlayerFall");
     private static readonly int Dash = Animator.StringToHash("PlayerDash");
     private static readonly int Attack = Animator.StringToHash("PlayerAttack");
+    private static readonly int Death = Animator.StringToHash("PlayerDeath");
 
     private void Awake()
     {
         player = GetComponent<PlayerController>();
-        _anim = GetComponent<Animator>();
-        renderer = GetComponent<SpriteRenderer>();
+        anim = GetComponent<Animator>();
+        
     }
 
 
     private void Update()
     {
-
         var state = GetState();
 
-
         if (state == currentState) return;
-        _anim.CrossFade(state, 0, 0);
+        anim.CrossFade(state, 0, 0);
         currentState = state;
     }
 
@@ -66,14 +59,23 @@ public class PlayerAnimator : MonoBehaviour
         {
             return Dash;
         }
+        if(player.CurrentState == player.playerAttackState)
+        {
+            return Attack;
+        }
+        if (player.CurrentState == player.tookDamageState)
+        {
+            return Fall;
+        }
+        if (player.CurrentState == player.playerDeathState)
+        {
+            return Death;
+        }
+
 
         return Idle;
 
-        int LockState(int s, float t)
-        {
-            lockedTill = Time.time + t;
-            return s;
-        }
+        
     }
 
 
