@@ -13,6 +13,7 @@ public class Attack : MonoBehaviour
     {
        if(attackAnimation != null) attackAnimation.SetActive(false);
     }
+    // Wywo³ywana przez Event w animacji ataku
     public void DoAttack()
     {
         Collider2D[] hitEnemies = Physics2D.OverlapCircleAll(hitPosition.position, attackRange, targetLayer);

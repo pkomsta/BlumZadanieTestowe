@@ -22,7 +22,7 @@ public class DeathState : BaseState
     {
         if(Time.time > timeOfDeath + timeBeforeDestroy)
         {
-            controller.gameObject.SetActive(false);
+            GameManager.Instance.DestroyOnDeath(controller.gameObject);
         }
     }
 }

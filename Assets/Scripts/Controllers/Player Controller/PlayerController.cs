@@ -139,12 +139,14 @@ public class PlayerController : Controller
     public override void OnDeath()
     {
         TransitionToState(playerDeathState);
+        GameManager.Instance.GameOver();
     }
 
     public override void TookDamage(Transform transform)
     {
         base.TookDamage(transform);
         TransitionToState(tookDamageState);
+        GameManager.Instance.GetHeartAndPopIt();
     }
 
 }

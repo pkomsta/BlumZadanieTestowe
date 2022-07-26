@@ -60,6 +60,7 @@ public abstract class Controller : MonoBehaviour
         
         currentState.FixedUpdate(this);
     }
+    
 
     public void TransitionToState(BaseState state)
     {

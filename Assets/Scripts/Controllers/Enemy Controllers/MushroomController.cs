@@ -18,6 +18,7 @@ public class MushroomController : Controller
     {
 
         base.Update();
+        if (waypoints.Length <= 0) return;
         if (waypoints[waypointIndex].transform.position.x < transform.position.x && looksRight)
         {
             looksRight = false;
