@@ -49,6 +49,7 @@ GameObject:
   - component: {fileID: 2919447239838883841}
   - component: {fileID: 295816667895470904}
   - component: {fileID: 829377239376635632}
+  - component: {fileID: 8585658103046116542}
   m_Layer: 7
   m_Name: Goblin
   m_TagString: Untagged
@@ -224,19 +225,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 2
   knockback: 4000
-  waypoints:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  waitTime: 1
-  arriveTime: Infinity
-  waypointIndex: 0
   chaseRange: 5
   attackRange: 1
   player: {fileID: 0}
   chaseSpeed: 4
   isChasing: 0
   looksRight: 1
+  waypoints: {fileID: 0}
 --- !u!114 &295816667895470904
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -267,3 +262,19 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 64
   attackAnimation: {fileID: 0}
+--- !u!114 &8585658103046116542
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7165588766422633634}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c9fdb8c82e847c549b1c1e879a8296f5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  waypoints: []
+  waitTime: 1
+  arriveTime: Infinity
+  waypointIndex: 0

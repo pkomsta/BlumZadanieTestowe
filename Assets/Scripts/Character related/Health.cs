@@ -14,10 +14,11 @@ public class Health : MonoBehaviour
     bool isDead = false;
     public TookDamageEvent tookDamage;
     bool canBeDamaged = true;
-    public float invincibleTime = 0.75f;
+    public float invincibleTime = 1f;
 
     public void TakeDamage(Transform transform)
     {
+        Debug.Log(transform.name);
         if (!isDead)
         {
             health--;
