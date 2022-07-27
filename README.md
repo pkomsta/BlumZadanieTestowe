@@ -1,6 +1,6 @@
 # BlumZadanieTestowe
 
-Sterowanie Klawiatura:
+Sterowanie:
 - poruszanie się: A i D lub gałka pada;
 - skok: spacja lub dolny przycisk u pada;
 - atak: C lub lewy przycisk pada;
