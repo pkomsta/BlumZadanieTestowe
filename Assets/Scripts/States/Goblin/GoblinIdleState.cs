@@ -6,7 +6,7 @@ public class GoblinIdleState : BaseState
 {
     public override void EnterState(Controller controller)
     {
-        (controller as GoblinController).arriveTime = Time.time;
+        (controller as GoblinController).waypoints.arriveTime = Time.time;
         controller.Rigidbody.velocity = new Vector2(0f, 0f);
         (controller as GoblinController).isChasing = false;
     }
@@ -26,7 +26,7 @@ public class GoblinIdleState : BaseState
             }
         }
         
-        if ((controller as GoblinController).waypoints.Length > 0 && Time.time > (controller as GoblinController).arriveTime + (controller as GoblinController).waitTime)
+        if ((controller as GoblinController).waypoints.areThereAnyWaypoints() && Time.time > (controller as GoblinController).waypoints.arriveTime + (controller as GoblinController).waypoints.waitTime)
         {
             controller.TransitionToState((controller as GoblinController).goblinWalkState);
         }

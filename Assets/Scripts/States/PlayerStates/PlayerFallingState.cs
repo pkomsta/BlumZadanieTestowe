@@ -37,7 +37,7 @@ public class PlayerFallingState : BaseState
                 controller.Rigidbody.AddForce(Vector2.up * (controller as PlayerController).jumpForce, ForceMode2D.Impulse);
             }
         }
-       else if (controller.Rigidbody.velocity.y == 0 && (controller as PlayerController).isGrounded())
+       else if (controller.Rigidbody.velocity.y == 0 && (controller as PlayerController).grounded.isGrounded())
         {
 
             controller.TransitionToState((controller as PlayerController).IdleState);

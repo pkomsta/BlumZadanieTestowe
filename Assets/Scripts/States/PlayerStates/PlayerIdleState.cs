@@ -29,7 +29,7 @@ public class PlayerIdleState : BaseState
             (controller as PlayerController).jumpTime = Time.time;
             controller.TransitionToState((controller as PlayerController).playerJumpState);
         }
-        else if (!(controller as PlayerController).isGrounded() && controller.Rigidbody.velocity.y < -0.1)
+        else if (!(controller as PlayerController).grounded.isGrounded() && controller.Rigidbody.velocity.y < -0.1)
         {
             controller.TransitionToState((controller as PlayerController).playerFallingState);
         }

@@ -2,12 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+[RequireComponent(typeof(Waypoints))]
 public class GoblinController : Controller
 {
-    public Transform[] waypoints;
-    public float waitTime = 1f;
-    public float arriveTime = Mathf.Infinity;
-    [HideInInspector] public int waypointIndex;
 
     public float chaseRange = 10f;
     public float attackRange = 1f;
@@ -16,6 +13,7 @@ public class GoblinController : Controller
 
     [HideInInspector] public bool isChasing = false;
     [HideInInspector] public bool looksRight = true;
+    [HideInInspector] public Waypoints waypoints;
     public override BaseState IdleState => new GoblinIdleState();
     public readonly TookDamageState tookDamageState = new TookDamageState();
     public readonly DeathState deathState = new DeathState();
@@ -27,19 +25,20 @@ public class GoblinController : Controller
     {
         base.Awake();
         player = GameObject.FindWithTag("Player");
+        waypoints = GetComponent<Waypoints>();
     }
     public override void Update()
     {
 
         base.Update();
-        if (waypoints.Length <= 0) return;
+        if (!waypoints.areThereAnyWaypoints()) return;
         if (isChasing) return;
-        if (waypoints[waypointIndex].transform.position.x < transform.position.x && looksRight)
+        if (!waypoints.waypointIsToRight() && looksRight)
         {
             looksRight = false;
             Flip();
         }
-        else if (waypoints[waypointIndex].transform.position.x > transform.position.x && !looksRight)
+        else if (waypoints.waypointIsToRight() && !looksRight)
         {
             looksRight = true;
             Flip();

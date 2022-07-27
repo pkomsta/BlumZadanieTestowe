@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
+[RequireComponent(typeof(Grounded))]
 public class PlayerController : Controller
 {
     public float jumpForce = 10f;
@@ -20,12 +21,8 @@ public class PlayerController : Controller
     [Header("Attack")]
     public float attackCooldown = 0.5f;
     public float nextAttack = 0.0f;
-    [Header("Ground")]
-    [SerializeField] private LayerMask terrainMask;
-    [SerializeField] private Transform groundCheck;
 
-    const float groundedRadius = .2f;
-    private bool grounded;
+    [HideInInspector] public Grounded grounded;
 
     public InputAction move
     {
@@ -61,8 +58,10 @@ public class PlayerController : Controller
 
     public override void Awake()
     {
-        playerControls = new PlayerInputActions();
+        
         base.Awake();
+        playerControls = new PlayerInputActions();
+        grounded = GetComponent<Grounded>();
     }
 
     private void OnEnable()
@@ -99,41 +98,6 @@ public class PlayerController : Controller
             
             Flip();
         }
-    }
-    public override void FixedUpdate()
-    {
-        Grounded();
-        base.FixedUpdate();
-    }
-    public void Grounded()
-    {
-        bool wasGrounded = grounded;
-        grounded = false;
-
-        Collider2D[] colliders = Physics2D.OverlapCircleAll(groundCheck.position, groundedRadius, terrainMask);
-        for (int i = 0; i < colliders.Length; i++)
-        {
-            if (colliders[i].gameObject != gameObject)
-            {
-                grounded = true;
-
-            }
-
-        }
-        if (!grounded && wasGrounded)
-        {
-            timeLeftGrounded = Time.time;
-        }
-    }
-
-    public bool isGrounded()
-    {
-        return grounded;
-    }
-
-    private void OnDrawGizmos()
-    {
-        Gizmos.DrawWireSphere(groundCheck.position, groundedRadius);
     }
 
     public override void OnDeath()
