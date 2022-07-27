@@ -18,8 +18,8 @@ public class Health : MonoBehaviour
 
     public void TakeDamage(Transform transform)
     {
-        Debug.Log(transform.name);
-        if (!isDead)
+        
+        if (!isDead && canBeDamaged)
         {
             health--;
         }
