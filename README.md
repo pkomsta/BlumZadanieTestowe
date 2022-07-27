@@ -1,15 +1,11 @@
 # BlumZadanieTestowe
 
 Sterowanie Klawiatura:
-poruszanie się - A i D;
-skok - spacja;
-atak - C;
-dash - shift;
-Sterowanie Pad:
-poruszanie się - gałka
-skok - dolny przycisk z prawej;
-atak - lewy przycisk z prawej;
-dash - prawy przycisk z prawej;
+- poruszanie się: A i D lub gałka pada;
+- skok: spacja lub dolny przycisk u pada;
+- atak: C lub lewy przycisk pada;
+- dash: shift lub prawy przycisk pada;
+
 
 Dodatkowe fitchery podam poniżej:- gracz atakiem odpycha przeciwników.
 - gracz posiada dodatkową akcję w postaci dasha, który to szybko go przemieści na przód w kierunku którym był zwrócony.
